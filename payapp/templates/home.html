@@ -1,0 +1,507 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>Home - Company Overview</title>
+</head>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+    /* Body and General Styling */
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f7f6;
+        color: #333;
+        margin: 0;
+        padding: 20px;
+    }
+
+    /* Container for the content */
+    h1 {
+        background-color: #007bff;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+    }
+    
+    h2 {
+        color: #0056b3;
+        border-bottom: 2px solid #e0e0e0;
+        padding-bottom: 10px;
+        margin-top: 30px;
+    }
+
+    /* Navigation Bar */
+    nav {
+        background-color: #fff;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+    
+    nav a {
+        text-decoration: none;
+        color: #555;
+        font-weight: 600;
+        padding: 10px 15px;
+        border-radius: 5px;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    nav a:hover {
+        background-color: #007bff;
+        color: #fff;
+    }
+
+    /* Horizontal Rule */
+    hr {
+        border: 0;
+        height: 1px;
+        background-color: #e0e0e0;
+        margin: 20px 0;
+    }
+    
+    /* General content box styling */
+    .content-box {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        margin-bottom: 20px;
+    }
+    .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        /* Header / Top Navigation Bar (Dark Theme) */
+        header {
+            background-color: #1a237e; /* A dark blue inspired by the image */
+            color: #fff;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .main-menu {
+            display: flex;
+            gap: 30px;
+            margin-right: 20px;
+        }
+
+        .main-menu a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        .main-menu a:hover {
+            background-color: #3f51b5; /* Lighter blue for hover */
+        }
+
+        /* Hero Section / Banner */
+        .hero-section {
+            background: linear-gradient(rgba(26, 35, 126, 0.9), rgba(26, 35, 126, 0.7)), url('https://placehold.co/1200x400/1a237e/ffffff?text=Payroll+Dashboard') no-repeat center center/cover;
+            color: #fff;
+            text-align: center;
+            padding: 100px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-section h1 {
+            font-size: 3em;
+            margin: 0;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-section p {
+            font-size: 1.2em;
+            margin-top: 10px;
+            font-weight: 500;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Overview Cards Section */
+        .overview-cards {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 40px 0;
+        }
+        
+        .card {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            flex: 1;
+            min-width: 280px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .card .icon-container {
+            height: 60px;
+            width: 60px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            background-color: #e3f2fd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card .icon {
+            font-size: 2.5em;
+            color: #007bff;
+        }
+
+        .card h3 {
+            font-size: 1.5em;
+            color: #333;
+            margin: 0 0 10px 0;
+        }
+
+        .card p {
+            color: #666;
+            font-size: 1em;
+            margin-bottom: 20px;
+        }
+
+        .card-button {
+            display: inline-block;
+            text-decoration: none;
+            color: #007bff;
+            border: 2px solid #007bff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .card-button:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .main-menu {
+                display: none;
+            }
+            header {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .hero-section {
+                padding: 60px 20px;
+            }
+            .hero-section h1 {
+                font-size: 2em;
+            }
+            .hero-section p {
+                font-size: 1em;
+            }
+        }
+        /* New section for Employee Reviews and Stats */
+        .stats-section {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 40px 0;
+        }
+
+        .review-card {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .review-card h3 {
+            font-size: 1.5em;
+            color: #333;
+            margin-top: 0;
+        }
+
+        .review-card p {
+            color: #666;
+            font-size: 1em;
+            margin-bottom: 0;
+        }
+
+        .review-card .number {
+            font-size: 3em;
+            font-weight: 700;
+            color: #28a745;
+            margin: 10px 0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #343a40;
+            color: #fff;
+            padding: 40px 20px;
+            margin-top: 40px;
+            border-radius: 8px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            text-align: left;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 20px;
+        }
+
+        .footer-section h3 {
+            color: #fff;
+            font-size: 1.2em;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #ddd;
+            text-decoration: none;
+            font-size: 0.9em;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .footer-section a:hover {
+            color: #fff;
+        }
+
+        .social-icons a {
+            color: #fff;
+            font-size: 1.5em;
+            margin-right: 15px;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #007bff;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .main-menu {
+                display: none;
+            }
+            header {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .hero-section {
+                padding: 60px 20px;
+            }
+            .hero-section h1 {
+                font-size: 2em;
+            }
+            .hero-section p {
+                font-size: 1em;
+            }
+            .stats-section {
+                flex-direction: column;
+            }
+            footer {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-section h3 {
+                border-bottom: none;
+                text-align: center;
+            }
+        }
+        nav a{
+            background-color:#007bff;
+            color:White;
+            padding-left:10px;
+            padding-right:10px;
+            margin-left:80px;
+            position:relative;
+            left:-40px;
+        }
+        /* Add the following for the login button */
+
+        .login-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .login-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .main-menu {
+            display: flex;
+            gap: 30px;
+            margin-right: 40px;
+            margin-left:210px;
+        }
+
+        .login-form {
+            max-width: 400px;
+            margin: auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-form input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .login-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+        }
+
+        .login-form button:hover {
+            background-color: #0056b3;
+        }
+        .main-menu a{
+            margin-left:100px;
+        }
+</style>
+<body>
+    <h1>TechNest Dashboard</h1> <!-- Header with Login Button -->
+    <header>
+        {% comment %} <div class="logo">TechNest</div> {% endcomment %}
+        <div class="main-menu">
+            <a href="{% url 'home_view' %}">Overview</a>
+            <a href="{% url 'payroll_view' %}">Payroll</a>
+            <a href="#">Payslip</a>
+            <a href="{% url 'login_view' %}" class="login-btn">Login</a> <!-- Login Button -->
+        </div>
+    </header>
+    <hr>
+    
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <h1>Welcome to the Payroll Dashboard</h1>
+            <p>Streamline · Manage · Generate Employee Payroll</p>
+        </section>
+
+        <!-- Overview Cards -->
+        <section class="overview-cards">
+            <div class="card">
+                <div class="icon-container">
+                    <span class="icon">📅</span>
+                </div>
+                <h3>Company Calendar</h3>
+                <p>View monthly events, meetings, and holidays.</p>
+                <a href="#" class="card-button">View Calendar</a>
+            </div>
+            
+            <div class="card">
+                <div class="icon-container">
+                    <span class="icon">1</span>
+                </div>
+                <h3>Office Working Days</h3>
+                <p>Check the number of working days available</p>
+                <a href="#" class="card-button">View Details</a>
+            </div>
+            
+            <div class="card">
+                <div class="icon-container">
+                    <span class="icon">🏖️</span>
+                </div>
+                <h3>Leave Days</h3>
+                <p>Track employee leave and time-off</p>
+                <a href="#" class="card-button">View Details</a>
+            </div>
+        </section>
+    </main>
+    <!-- New section for Employee Reviews and Stats -->
+        <section class="stats-section">
+            <div class="review-card">
+                <h3 class="number">1000+</h3>
+                <p>Happy Staffs</p>
+            </div>
+            <div class="review-card">
+                <h3 class="number">4.9/5</h3>
+                <p>Employee Reviews</p>
+            </div>
+            <div class="review-card">
+                <h3 class="number">5+</h3>
+                <p>Years of Service</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-section">
+            <h3>Adress</h3>
+            <p>TechNest</p>
+            <p>123, Main Street</p>
+            <p>Chennai, Tamil Nadu 600001</p>
+        </div>
+        <div class="footer-section">
+            <h3>Contact Us</h3>
+            <p>Email: <a href="mailto:contact@company.com">TechNest@company.com</a></p>
+            <p>Phone: +91 55555 40000</p>
+        </div>
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+           <div class="social-icons">
+                <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+                <a href="#"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+            </div>
+        </div>
+    </footer>
+    </body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payslip</title>
+    <style>
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid black; padding: 8px; text-align: left; }
+    </style>
+    <style>
+    /* General Body and Font Styles */
+    body {
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+        background-color: #f8f9fa; /* Light gray background */
+        margin: 0;
+        padding: 40px;
+        color: #343a40; /* Dark gray text */
+    }
+
+    /* Container for the main content */
+    .payslip-container {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: #fff; /* White background for the content box */
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Header Section */
+    .header-section {
+        text-align: center;
+        border-bottom: 3px solid #007bff; /* Blue underline */
+        padding-bottom: 20px;
+        margin-bottom: 30px;
+    }
+
+    .header-section h1 {
+        font-size: 2.5em;
+        color: #007bff;
+        margin: 0;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    .header-section h2 {
+        font-size: 1.5em;
+        color: #6c757d;
+        margin-top: 10px;
+        font-weight: 400;
+    }
+
+    /* Navigation Bar */
+    nav {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        background-color: #e9ecef;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 30px;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: #495057;
+        font-weight: 600;
+        padding: 10px 15px;
+        border-radius: 5px;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    nav a:hover {
+        background-color: #007bff;
+        color: #fff;
+    }
+
+    hr {
+        border: 0;
+        height: 1px;
+        background-color: #dee2e6;
+        margin: 30px 0;
+    }
+
+    /* Section Headings */
+    h2, h3 {
+        font-size: 1.5em;
+        color: #0056b3;
+        border-left: 4px solid #007bff;
+        padding-left: 10px;
+        margin-top: 40px;
+        margin-bottom: 20px;
+    }
+
+    /* Employee Details */
+    .employee-details p {
+        margin: 8px 0;
+        font-size: 1em;
+        line-height: 1.6;
+    }
+
+    .employee-details strong {
+        color: #000;
+        font-weight: 600;
+        display: inline-block;
+        min-width: 120px;
+    }
+
+    /* Table Styles */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        border: 1px solid #dee2e6;
+    }
+
+    th, td {
+        border: 1px solid #dee2e6;
+        padding: 12px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #e9ecef;
+        font-weight: 600;
+        color: #495057;
+        text-transform: uppercase;
+    }
+
+    /* Grand Total */
+    .grand-total {
+        text-align: right;
+        margin-top: 30px;
+        font-size: 1.8em;
+        color: #28a745; /* Green color for emphasis */
+        font-weight: 700;
+        border-top: 2px solid #28a745;
+        padding-top: 15px;
+    }
+
+    .grand-total strong {
+        margin-left: 20px;
+    }
+
+    /* Download button styles */
+    .download-button {
+        display: block;
+        width: 250px;
+        margin: 40px auto 0;
+        padding: 15px;
+        text-align: center;
+        background-color: #17a2b8; /* Cyan color */
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 1.1em;
+        font-weight: 600;
+        transition: background-color 0.3s ease;
+    }
+
+    .download-button:hover {
+        background-color: #138496;
+    }
+    a{
+        background-color : #17a2b8;
+        color:black;
+        padding:12px;
+        text-decoration:none;
+        border-radius:10px;
+        justify-content:center;
+    }
+    nav a{
+            background-color:#007bff;
+            color:White;
+            padding-left:10px;
+            padding-right:10px;
+            margin-left:80px;
+            position:relative;
+            left:-40px;
+        }
+</style>
+</head>
+<body>
+    <h1>Payslip for {{ payslip.name }}</h1>
+    <nav>
+        <a href="{% url 'home_view' %}">Overview</a> | 
+        <a href="{% url 'payroll_view' %}">Payroll</a> | 
+        <a href="#">Payslip</a> 
+    </nav>
+    <hr>
+    
+    <h2>Employee Details</h2>
+    <p><strong>Name:</strong> {{ payslip.name }}</p>
+    <p><strong>Roll:</strong> {{ payslip.roll }}</p>
+    <p><strong>Employee ID:</strong> {{ payslip.employee_id }}</p>
+    <p><strong>Month:</strong> {{ payslip.month|date:"F Y" }}</p>
+    
+    <h2>Salary Details</h2>
+    <table>
+        <tr>
+            <th>Description</th>
+            <th>Amount</th>
+        </tr>
+        <tr>
+            <td>Per Day Salary</td>
+            <td>₹ {{ payslip.per_day_salary }}</td>
+        </tr>
+        <tr>
+            <td>Total Working Days</td>
+            <td>{{ payslip.working_days }}</td>
+        </tr>
+        <tr>
+            <td>Present Days</td>
+            <td>{{ payslip.present_days }}</td>
+        </tr>
+        <tr>
+            <td>Leave Days</td>
+            <td>{{ payslip.leave_days }}</td>
+        </tr>
+        <tr>
+            <td>Base Salary ({{ payslip.present_days }} * {{ payslip.per_day_salary }})</td>
+            <td>₹ {{ payslip.total_salary }}</td>
+        </tr>
+        <tr>
+            <td>Deductions</td>
+            <td>₹ {{ payslip.deductions }}</td>
+        </tr>
+        <tr>
+            <td>Additional</td>
+            <td>₹ {{ payslip.additions }}</td>
+        </tr>
+    </table>
+    
+    <h3>Grand Total: ₹ {{ payslip.grand_total }}</h3>
+    
+    <a href="{% url 'generate_pdf' payslip.id %}">Download Payslip</a>
+</body>
+</html>

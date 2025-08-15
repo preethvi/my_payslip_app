@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payslip</title>
+    <style>
+        body { font-family: sans-serif; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid black; padding: 8px; text-align: left; }
+        h1, h2, h3 { color: #333; }
+        h1{
+            font-size:30px;
+            text-decoration:underline;
+        }
+         h2{
+            font-size:22px;
+        }
+        h3{
+            font-size:22px;
+        }
+        p{
+          font-size:20px;  
+        }
+        tr,th{
+          font-size:18px;  
+        }
+    </style>
+    
+</head>
+<body>
+    <div style="text-align: center;">
+        <h1>TechNest</h1>
+        <h2>Payslip for {{ payslip.month|date:"F Y" }}</h2>
+    </div>
+
+    <h3>Employee Details</h3>
+    <p><strong>Name:</strong> {{ payslip.name }}</p>
+    <p><strong>Roll:</strong> {{ payslip.roll }}</p>
+    <p><strong>Employee ID:</strong> {{ payslip.employee_id }}</p>
+
+    <h3>Salary Breakdown</h3>
+    <table>
+        <tr>
+            <th>Description</th>
+            <th>Amount</th>
+        </tr>
+        <tr>
+            <td>Total Working Days</td>
+            <td>{{ payslip.working_days }}</td>
+        </tr>
+        <tr>
+            <td>Present Days</td>
+            <td>{{ payslip.present_days }}</td>
+        </tr>
+        <tr>
+            <td>Leave Days</td>
+            <td>{{ payslip.leave_days }}</td>
+        </tr>
+        <tr>
+            <td>Base Salary</td>
+            <td>₹ {{ payslip.total_salary }}</td>
+        </tr>
+        <tr>
+            <td>Deductions</td>
+            <td>₹ {{ payslip.deductions }}</td>
+        </tr>
+        <tr>
+            <td>Additional</td>
+            <td>₹ {{ payslip.additions }}</td>
+        </tr>
+    </table>
+
+    <h2 style="text-align: right; margin-top: 20px;">Grand Total: ₹ {{ payslip.grand_total }}</h2>
+
+</body>
+</html> 
