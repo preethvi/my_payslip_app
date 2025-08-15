@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-)2mfdns1w&)-b)*idn)1folk&565ilu*#*-#fuudi1i_n)qow&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['payslip.onrender.com']
+ALLOWED_HOSTS = ['my-payslip-app.onrender.com']
 
 
 
